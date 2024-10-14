@@ -15,12 +15,12 @@ order by date
 
 -- looking at total cases vs populaition
 -- shows what % of population got Covid
-select location, date, total_cases, population, round((total_cases/population) * 100,2) as  percentage_population_infencted
+select location, date, total_cases, population, round((total_cases/population) * 100,2) as  percentage_population_infected
 from covid_19.CovidDeaths
 where location like '%china%'
 order by date 
 
-select location, date, total_cases, population, round((total_cases/population) * 100,2) as   percentage_population_infencted
+select location, date, total_cases, population, round((total_cases/population) * 100,2) as   percentage_population_infected
 from covid_19.CovidDeaths
 where location like '%states%'
 order by date 
@@ -30,10 +30,10 @@ select
 		location, 
 		population,
 		max(total_cases) as highest_cases,
-		max(round((total_cases/population) * 100,2)) as  highest_percentage_population_infencted
+		max(round((total_cases/population) * 100,2)) as  highest_percentage_population_infected
 from covid_19.CovidDeaths
 group by location, population
-order by highest_percentage_population_infencted desc
+order by highest_percentage_population_infected desc
 
 -- showing the countires with highest death rate compared to population
 select 
